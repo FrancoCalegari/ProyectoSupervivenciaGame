@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PROJECT INFINITY - Plataforma</title>
+
+
+<style>
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+
+body{
+
+width:100%;
+height:100vh;
+
+font-family:'Segoe UI',sans-serif;
+
+color:white;
+
+overflow:hidden;
+
+background:#050508;
+
+}
+
+
+
+/* =========================
+   FONDO TORRE
+========================= */
+
+
+.background{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+
+background-image:
+
+linear-gradient(
+
+rgba(5,5,15,.65),
+
+rgba(5,5,8,.95)
+
+),
+
+url("assets/img/fondo_project_infinity.png");
+
+
+background-size:cover;
+
+background-position:center;
+
+
+}
+
+
+
+.background:hover{
+
+filter:brightness(1.2);
+
+}
+
+
+
+/* =========================
+   LOGO
+========================= */
+
+
+.logo{
+
+
+position:absolute;
+
+
+top:25px;
+
+
+left:35px;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+gap:15px;
+
+
+
+z-index:2;
+
+
+
+}
+
+
+
+.logo img{
+
+
+width:90px;
+
+
+height:90px;
+
+
+object-fit:contain;
+
+
+filter:drop-shadow(0 0 15px cyan);
+
+
+}
+
+
+
+.logo h2{
+
+
+font-size:25px;
+
+
+letter-spacing:3px;
+
+
+text-shadow:
+
+0 0 15px cyan;
+
+
+
+}
+
+
+
+
+
+/* =========================
+   TITULO
+========================= */
+
+
+.title{
+
+
+position:absolute;
+
+
+top:160px;
+
+
+width:100%;
+
+
+text-align:center;
+
+
+z-index:2;
+
+
+}
+
+
+
+.title h1{
+
+
+font-size:55px;
+
+
+letter-spacing:8px;
+
+
+text-shadow:
+
+
+0 0 20px cyan,
+
+
+0 0 50px cyan;
+
+
+
+}
+
+
+
+/* =========================
+   MENU
+========================= */
+
+
+.menu{
+
+
+position:absolute;
+
+
+top:300px;
+
+
+width:100%;
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+gap:40px;
+
+
+z-index:2;
+
+
+
+}
+
+
+
+.card{
+
+
+width:250px;
+
+
+height:170px;
+
+
+
+background:rgba(15,15,35,.85);
+
+
+
+border:2px solid cyan;
+
+
+border-radius:20px;
+
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+
+font-size:25px;
+
+
+font-weight:bold;
+
+
+
+cursor:pointer;
+
+
+
+transition:.4s;
+
+
+
+}
+
+
+
+.card:hover{
+
+
+transform:translateY(-15px) scale(1.08);
+
+
+
+box-shadow:
+
+
+0 0 30px cyan,
+
+
+0 0 60px cyan;
+
+
+
+background:rgba(40,40,80,.9);
+
+
+
+}
+
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="background"></div>
+
+
+
+<div class="logo">
+
+
+<img src="assets/img/logo_project_infinity.png">
+
+
+<h2>
+
+PROJECT INFINITY
+
+</h2>
+
+
+</div>
+
+
+
+
+<div class="title">
+
+<h1>
+
+PLATAFORMA
+
+</h1>
+
+</div>
+
+
+
+
+
+<div class="menu">
+
+
+<div class="card">
+
+🎮 JUEGOS
+
+</div>
+
+
+
+<div class="card">
+
+💻 PROGRAMAS
+
+</div>
+
+
+
+<div class="card">
+
+🛠️ APLICACIONES
+
+</div>
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>

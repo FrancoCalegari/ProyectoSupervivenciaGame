@@ -7,7 +7,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>PROJECT INFINITY</title>
 
 
@@ -16,9 +15,9 @@
 
 *{
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 
 }
 
@@ -26,14 +25,14 @@
 
 html,body{
 
-    width:100%;
-    height:100%;
+width:100%;
+height:100%;
 
-    overflow:hidden;
+overflow:hidden;
 
-    font-family:'Segoe UI',sans-serif;
+font-family:'Segoe UI',sans-serif;
 
-    background:#050508;
+background:#050508;
 
 }
 
@@ -47,51 +46,33 @@ html,body{
 .city-background{
 
 
-    position:absolute;
+position:absolute;
+
+top:0;
+
+left:0;
 
 
-    top:0;
+width:100%;
 
-    left:0;
-
-
-    width:100%;
-
-    height:100%;
-
-
-
-    background-image:
-
-    url("assets/img/fondo_project_infinity.png");
+height:100%;
 
 
 
-    background-size:cover;
+background-image:
 
-
-    background-position:center;
-
-
-
-    z-index:1;
+url("assets/img/fondo_project_infinity.png");
 
 
 
-    transition:.5s;
+background-size:cover;
+
+background-position:center;
 
 
-}
 
+z-index:1;
 
-
-/* efecto brillo general */
-
-
-.city-background:hover{
-
-
-    filter:brightness(1.15);
 
 
 }
@@ -106,63 +87,58 @@ html,body{
 .main-tower{
 
 
-    position:absolute;
+position:absolute;
 
 
-    bottom:0;
+bottom:0;
 
 
-    left:50%;
+left:50%;
 
 
-    transform:translateX(-50%);
-
-
-
-    width:22%;
-
-
-    height:92%;
+transform:translateX(-50%);
 
 
 
-    background:rgba(20,20,35,.65);
+width:22%;
+
+
+height:92%;
 
 
 
-    border-top:4px solid #666;
+background:rgba(20,20,35,.55);
 
 
 
-    transition:.6s;
+border-top:4px solid #777;
 
 
 
-    z-index:3;
+transition:.6s;
 
+
+
+z-index:3;
 
 
 }
 
-
-
-/* iluminación al pasar mouse */
 
 
 .main-tower:hover{
 
 
-    background:rgba(80,80,120,.75);
+background:rgba(70,70,120,.75);
 
 
 
-    box-shadow:
+box-shadow:
 
 
-    0 0 40px cyan,
+0 0 40px cyan,
 
-
-    0 0 90px cyan;
+0 0 90px cyan;
 
 
 
@@ -170,63 +146,49 @@ html,body{
 
 
 
-/* ventanas torre */
-
+/* Ventanas */
 
 .tower-grid{
 
 
-    position:absolute;
+position:absolute;
+
+
+top:5%;
+
+left:10%;
 
 
 
-    top:5%;
+width:80%;
 
-
-    left:10%;
-
-
-
-    width:80%;
-
-
-    height:90%;
+height:90%;
 
 
 
-    background-image:
+background-image:
+
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.15) 1px,
+transparent 1px
+),
+
+
+linear-gradient(
+0deg,
+rgba(255,255,255,.10) 1px,
+transparent 1px
+);
 
 
 
-    linear-gradient(
-
-    90deg,
-
-    rgba(255,255,255,.15) 1px,
-
-    transparent 1px
-
-    ),
-
-
-
-    linear-gradient(
-
-    0deg,
-
-    rgba(255,255,255,.10) 1px,
-
-    transparent 1px
-
-    );
-
-
-
-    background-size:14px 14px;
-
+background-size:14px 14px;
 
 
 }
+
 
 
 
@@ -238,27 +200,27 @@ html,body{
 .logo-container{
 
 
-    position:fixed;
+position:fixed;
 
 
-    top:25px;
+top:25px;
 
 
-    left:30px;
-
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    gap:15px;
+left:30px;
 
 
 
-    z-index:10;
+display:flex;
+
+
+align-items:center;
+
+
+gap:15px;
+
+
+
+z-index:10;
 
 
 
@@ -269,20 +231,20 @@ html,body{
 .cat-logo{
 
 
-    width:95px;
+width:95px;
 
 
-    height:95px;
-
-
-
-    object-fit:contain;
+height:95px;
 
 
 
-    filter:
+object-fit:contain;
 
-    drop-shadow(0 0 15px cyan);
+
+
+filter:
+
+drop-shadow(0 0 15px cyan);
 
 
 
@@ -293,49 +255,53 @@ html,body{
 .logo-text{
 
 
-    color:white;
+color:white;
 
 
-    font-size:24px;
+font-size:24px;
 
 
-    font-weight:bold;
-
-
-
-    letter-spacing:3px;
+font-weight:bold;
 
 
 
-    text-shadow:
+letter-spacing:3px;
 
-    0 0 10px cyan;
 
+
+text-shadow:
+
+0 0 10px cyan;
 
 
 }
+
+
+
+
+
 /* =========================
-   BOTON ENTRAR
+   BOTON
 ========================= */
 
 
 .enter-button{
 
 
-    position:fixed;
+position:fixed;
 
 
-    bottom:50px;
+bottom:50px;
 
 
-    left:50%;
+left:50%;
 
 
-    transform:translateX(-50%);
+transform:translateX(-50%);
 
 
 
-    z-index:20;
+z-index:20;
 
 
 
@@ -346,39 +312,37 @@ html,body{
 .enter-button button{
 
 
-    padding:15px 45px;
+padding:15px 45px;
+
+
+border:none;
+
+
+border-radius:12px;
 
 
 
-    border:none;
+background:cyan;
 
 
 
-    border-radius:12px;
+color:#050508;
 
 
 
-    background:#00ffff;
+font-size:18px;
 
 
 
-    color:#050508;
+font-weight:bold;
 
 
 
-    font-size:18px;
+cursor:pointer;
 
 
 
-    font-weight:bold;
-
-
-
-    cursor:pointer;
-
-
-
-    transition:.4s;
+transition:.4s;
 
 
 
@@ -389,22 +353,20 @@ html,body{
 .enter-button button:hover{
 
 
-    background:white;
+background:white;
 
 
 
-    box-shadow:
+box-shadow:
 
 
-    0 0 25px cyan,
+0 0 25px cyan,
 
-
-    0 0 60px cyan;
+0 0 60px cyan;
 
 
 
 }
-
 
 
 </style>
@@ -418,50 +380,48 @@ html,body{
 
 
 
-
-<!-- =========================
-     FONDO CIUDAD
-========================= -->
+<!-- FONDO -->
 
 
 <div class="city-background">
 
 
 
-    <!-- TORRE CENTRAL -->
+<div class="main-tower">
 
 
-    <div class="main-tower">
-
-
-        <div class="tower-grid"></div>
-
-
-    </div>
-
+<div class="tower-grid"></div>
 
 
 </div>
-<!-- =========================
-     LOGO PROJECT INFINITY
-========================= -->
+
+
+</div>
+
+
+
+
+
+<!-- LOGO -->
 
 
 <div class="logo-container">
 
 
-    <img 
-    src="assets/img/logo_project_infinity.png"
-    class="cat-logo"
-    alt="Logo Project Infinity">
+<img
+
+src="assets/img/logo_project_infinity.png"
+
+class="cat-logo"
+
+alt="Logo Project Infinity">
 
 
+<div class="logo-text">
 
-    <div class="logo-text">
+PROJECT INFINITY
 
-        PROJECT INFINITY
-
-    </div>
+</div>
 
 
 </div>
@@ -469,23 +429,41 @@ html,body{
 
 
 
-<!-- =========================
-     BOTON ENTRAR
-========================= -->
+
+<!-- BOTON -->
 
 
 <div class="enter-button">
 
 
-    <button>
+<button onclick="entrarPlataforma()">
 
-        ENTRAR A LA PLATAFORMA
 
-    </button>
+ENTRAR A LA PLATAFORMA
+
+
+</button>
 
 
 </div>
 
+
+
+
+
+<script>
+
+
+function entrarPlataforma(){
+
+
+window.location.href="plataforma.html";
+
+
+}
+
+
+</script>
 
 
 
