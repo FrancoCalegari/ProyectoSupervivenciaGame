@@ -12,7 +12,6 @@
 
 <style>
 
-
 *{
 
 margin:0;
@@ -20,7 +19,6 @@ padding:0;
 box-sizing:border-box;
 
 }
-
 
 
 html,body{
@@ -32,34 +30,35 @@ overflow:hidden;
 
 font-family:'Segoe UI',sans-serif;
 
-background:#050508;
+background:#030308;
 
 }
 
 
 
 /* =========================
-   FONDO PROJECT INFINITY
+   FONDO CIUDAD CYBERPUNK
 ========================= */
 
 
 .city-background{
 
-
 position:absolute;
-
-top:0;
-
-left:0;
-
 
 width:100%;
 
 height:100%;
 
 
+background:
 
-background-image:
+linear-gradient(
+
+rgba(0,0,25,.55),
+
+rgba(0,0,5,.90)
+
+),
 
 url("assets/img/fondo_project_infinity.png");
 
@@ -70,17 +69,185 @@ background-size:cover;
 background-position:center;
 
 
-
-z-index:1;
-
+z-index:0;
 
 
 }
 
 
 
+
+
 /* =========================
-   TORRE CENTRAL
+   EDIFICIOS
+========================= */
+
+
+.building{
+
+position:absolute;
+
+bottom:0;
+
+
+background:
+
+linear-gradient(
+
+to top,
+
+#05050c,
+
+#17172b
+
+);
+
+
+border:1px solid rgba(0,255,255,.35);
+
+
+transition:.5s;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.building:hover{
+
+
+filter:
+
+brightness(1.8)
+
+drop-shadow(0 0 35px cyan);
+
+
+}
+
+
+
+.building::after{
+
+
+content:"";
+
+
+position:absolute;
+
+
+top:10%;
+
+
+left:15%;
+
+
+width:70%;
+
+
+height:80%;
+
+
+
+background-image:
+
+
+linear-gradient(
+
+90deg,
+
+transparent 45%,
+
+rgba(0,255,255,.45) 50%,
+
+transparent 55%
+
+),
+
+
+linear-gradient(
+
+0deg,
+
+transparent 45%,
+
+rgba(0,200,255,.35) 50%,
+
+transparent 55%
+
+);
+
+
+
+background-size:25px 25px;
+
+
+}
+
+
+
+
+.building-left{
+
+left:5%;
+
+width:18%;
+
+height:60%;
+
+}
+
+
+
+
+.building-left2{
+
+left:25%;
+
+width:13%;
+
+height:45%;
+
+}
+
+
+
+
+
+.building-right{
+
+right:5%;
+
+width:18%;
+
+height:70%;
+
+}
+
+
+
+
+
+.building-right2{
+
+right:25%;
+
+width:13%;
+
+height:50%;
+
+}
+
+
+
+
+
+
+/* =========================
+   TORRE CENTRAL 99%
 ========================= */
 
 
@@ -88,6 +255,9 @@ z-index:1;
 
 
 position:absolute;
+
+
+top:0.5%;
 
 
 bottom:0;
@@ -100,69 +270,65 @@ transform:translateX(-50%);
 
 
 
-width:22%;
+width:32%;
 
 
-height:92%;
-
-
-
-background:rgba(20,20,35,.55);
+height:99%;
 
 
 
-border-top:4px solid #777;
+background:
+
+
+linear-gradient(
+
+rgba(10,20,45,.75),
+
+rgba(0,0,10,.95)
+
+);
 
 
 
-transition:.6s;
+border-left:3px solid cyan;
 
 
-
-z-index:3;
-
-
-}
-
-
-
-.main-tower:hover{
-
-
-background:rgba(70,70,120,.75);
+border-right:3px solid cyan;
 
 
 
 box-shadow:
 
 
-0 0 40px cyan,
+0 0 30px rgba(0,255,255,.5);
 
-0 0 90px cyan;
 
+
+transition:.5s;
+
+
+
+z-index:2;
 
 
 }
 
 
 
-/* Ventanas */
 
-.tower-grid{
+/* Ventanas torre */
+
+
+.main-tower::before{
+
+
+content:"";
 
 
 position:absolute;
 
 
-top:5%;
-
-left:10%;
-
-
-
-width:80%;
-
-height:90%;
+inset:5%;
 
 
 
@@ -170,24 +336,76 @@ background-image:
 
 
 linear-gradient(
+
 90deg,
-rgba(255,255,255,.15) 1px,
-transparent 1px
+
+transparent 45%,
+
+rgba(0,255,255,.45) 50%,
+
+transparent 55%
+
 ),
 
 
 linear-gradient(
+
 0deg,
-rgba(255,255,255,.10) 1px,
-transparent 1px
+
+transparent 45%,
+
+rgba(0,200,255,.35) 50%,
+
+transparent 55%
+
 );
 
 
 
-background-size:14px 14px;
+background-size:30px 30px;
+
+
+opacity:.7;
 
 
 }
+
+
+
+
+
+/* Brillo torre */
+
+
+.main-tower:hover{
+
+
+transform:
+
+translateX(-50%)
+
+scale(1.03);
+
+
+
+filter:
+
+brightness(1.6);
+
+
+
+box-shadow:
+
+
+0 0 50px cyan,
+
+
+0 0 100px cyan;
+
+
+}
+
+
 
 
 
@@ -200,10 +418,10 @@ background-size:14px 14px;
 .logo-container{
 
 
-position:fixed;
+position:absolute;
 
 
-top:25px;
+top:30px;
 
 
 left:30px;
@@ -216,26 +434,27 @@ display:flex;
 align-items:center;
 
 
+
 gap:15px;
 
 
 
-z-index:10;
-
+z-index:5;
 
 
 }
 
 
 
+
+
 .cat-logo{
 
 
-width:95px;
+width:90px;
 
 
-height:95px;
-
+height:90px;
 
 
 object-fit:contain;
@@ -244,11 +463,12 @@ object-fit:contain;
 
 filter:
 
-drop-shadow(0 0 15px cyan);
-
+drop-shadow(0 0 20px cyan);
 
 
 }
+
+
 
 
 
@@ -258,23 +478,25 @@ drop-shadow(0 0 15px cyan);
 color:white;
 
 
-font-size:24px;
+font-size:28px;
 
 
 font-weight:bold;
 
 
 
-letter-spacing:3px;
+letter-spacing:4px;
 
 
 
 text-shadow:
 
-0 0 10px cyan;
+
+0 0 20px cyan;
 
 
 }
+
 
 
 
@@ -288,85 +510,99 @@ text-shadow:
 .enter-button{
 
 
-position:fixed;
+position:absolute;
 
 
-bottom:50px;
+bottom:70px;
 
 
-left:50%;
+width:100%;
 
 
-transform:translateX(-50%);
+text-align:center;
 
 
-
-z-index:20;
-
+z-index:5;
 
 
 }
+
+
+
+
+.enter-button a{
+
+
+text-decoration:none;
+
+
+}
+
 
 
 
 .enter-button button{
 
 
-padding:15px 45px;
+padding:20px 55px;
 
 
-border:none;
-
-
-border-radius:12px;
-
-
-
-background:cyan;
-
-
-
-color:#050508;
-
-
-
-font-size:18px;
-
+font-size:22px;
 
 
 font-weight:bold;
 
+
+border-radius:15px;
+
+
+border:2px solid cyan;
+
+
+background:rgba(5,10,30,.85);
+
+
+color:white;
 
 
 cursor:pointer;
 
 
 
+box-shadow:
+
+
+0 0 25px cyan;
+
+
+
 transition:.4s;
 
 
-
 }
+
+
 
 
 
 .enter-button button:hover{
 
 
-background:white;
+transform:scale(1.12);
 
 
 
 box-shadow:
 
 
-0 0 25px cyan,
+0 0 50px cyan,
 
-0 0 60px cyan;
 
+0 0 90px cyan;
 
 
 }
+
 
 
 </style>
@@ -380,41 +616,29 @@ box-shadow:
 
 
 
-<!-- FONDO -->
-
-
-<div class="city-background">
+<div class="city-background"></div>
 
 
 
-<div class="main-tower">
+<div class="building building-left"></div>
 
+<div class="building building-left2"></div>
 
-<div class="tower-grid"></div>
+<div class="building building-right"></div>
 
-
-</div>
-
-
-</div>
+<div class="building building-right2"></div>
 
 
 
+<div class="main-tower"></div>
 
 
-<!-- LOGO -->
 
 
 <div class="logo-container">
 
 
-<img
-
-src="assets/img/logo_project_infinity.png"
-
-class="cat-logo"
-
-alt="Logo Project Infinity">
+<img class="cat-logo" src="assets/img/logo_project_infinity.png">
 
 
 <div class="logo-text">
@@ -429,44 +653,27 @@ PROJECT INFINITY
 
 
 
-
-<!-- BOTON -->
-
-
 <div class="enter-button">
 
 
-<button onclick="entrarPlataforma()">
+<a href="plataforma.html">
 
+
+<button>
 
 ENTRAR A LA PLATAFORMA
 
-
 </button>
+
+
+</a>
 
 
 </div>
 
 
 
-
-
-<script>
-
-
-function entrarPlataforma(){
-
-
-window.location.href="plataforma.html";
-
-
-}
-
-
-</script>
-
-
-
 </body>
+
 
 </html>
