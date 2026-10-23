@@ -1,0 +1,25 @@
+{
+  "name": "proyectosupervivenciagame",
+  "version": "1.0.0",
+  "description": "Bienvenido/a al repositorio oficial de **SupervivenciaGame**. Este documento sirve como guía de inducción y mapa de ruta (*roadmap*) inicial para que los pasantes y desarrolladores puedan integrarse rápidamente al proyecto y comenzar con las tareas de desarrollo.",
+  "main": "server/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "node --watch server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancoCalegari/ProyectoSupervivenciaGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrancoCalegari/ProyectoSupervivenciaGame/issues"
+  },
+  "homepage": "https://github.com/FrancoCalegari/ProyectoSupervivenciaGame#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}

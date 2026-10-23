@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SupervivenciaGame - Zombie Survival WebGL</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas" width="1280" height="720"></canvas>
+
+    <!-- Overlay de Interfaz de Usuario (HUD) -->
+    <div id="hud">
+      <div class="hud-top">
+        <div class="hud-panel wave-counter">
+          <h2>Oleada <span id="wave-val">1</span></h2>
+        </div>
+        <div class="hud-panel score-display">
+          <span>Puntos: <span id="score-val">0</span></span>
+        </div>
+      </div>
+
+      <div class="hud-bottom">
+        <div class="hud-panel vitals-container">
+          <div class="stat-bar">
+            <span>Salud</span>
+            <div class="bar-track">
+              <div class="bar-fill health-fill" id="bar-health" style="width: 100%;"></div>
+            </div>
+          </div>
+          <div class="stat-bar">
+            <span>Escudo</span>
+            <div class="bar-track">
+              <div class="bar-fill shield-fill" id="bar-shield" style="width: 50%;"></div>
+            </div>
+          </div>
+          <div class="stat-bar">
+            <span>Energía</span>
+            <div class="bar-track">
+              <div class="bar-fill stamina-fill" id="bar-stamina" style="width: 80%;"></div>
+            </div>
+          </div>
+          <div class="stat-bar">
+            <span>Hambre</span>
+            <div class="bar-track">
+              <div class="bar-fill hunger-fill" id="bar-hunger" style="width: 90%;"></div>
+            </div>
+          </div>
+          <div class="stat-bar">
+            <span>Sed</span>
+            <div class="bar-track">
+              <div class="bar-fill thirst-fill" id="bar-thirst" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hud-panel ammo-panel">
+          <div class="ammo-count"><span id="ammo-clip">12</span>/<span id="ammo-reserve">60</span></div>
+          <div class="ammo-label">Munición 9mm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
