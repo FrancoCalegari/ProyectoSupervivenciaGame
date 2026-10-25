@@ -2,3 +2,34 @@ node_modules/
 .DS_Store
 *.log
 package-lock.json
+
+
+# ==========================================
+# STREAMBOX
+# Archivos fuera de ProyectoSupervivenciaGame
+# ==========================================
+
+historial.py
+pago.py
+pago.py.save
+payment_center.py
+smart_cart.py
+catalogo.py
+menu.py
+
+
+# ==========================================
+# PYTHON
+# ==========================================
+
+__pycache__/
+*.pyc
+
+
+# ==========================================
+# BACKUPS Y TEMPORALES
+# ==========================================
+
+*.save
+*.bak
+*.tmp
