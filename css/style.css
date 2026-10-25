@@ -1,0 +1,966 @@
+/* =====================================
+   PROJECT INFINITY
+   STYLE.CSS COMPLETO
+   BUILD WEB 0.2.0
+===================================== */
+
+
+/* RESET */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    background:#050505;
+    color:white;
+
+}
+
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+
+.header{
+
+    height:85px;
+
+    background:rgba(5,5,5,.95);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 40px;
+
+    border-bottom:2px solid #222;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+
+
+.logo-container{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+.logo{
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:contain;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.logo:hover{
+
+    transform:scale(1.15);
+
+    filter:drop-shadow(0 0 20px #00ffff);
+
+}
+
+
+
+.header h1{
+
+    font-size:26px;
+
+}
+
+
+
+.menu{
+
+    display:flex;
+
+    gap:25px;
+
+}
+
+
+
+.menu a{
+
+    color:#aaa;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+
+.menu a:hover{
+
+    color:#00ffff;
+
+}
+
+
+
+
+
+/* =====================================
+   HERO
+===================================== */
+
+
+.hero{
+
+
+    min-height:700px;
+
+
+    position:relative;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+    overflow:hidden;
+
+
+
+    background:
+
+
+
+    linear-gradient(
+
+    rgba(0,0,0,.55),
+
+    rgba(0,0,0,.9)
+
+    ),
+
+
+
+    url("../assets/img/fondo_project_infinity.png");
+
+
+
+    background-size:cover;
+
+
+    background-position:center;
+
+
+}
+
+
+
+
+
+.hero-content{
+
+
+    z-index:10;
+
+
+}
+
+
+
+
+
+.hero-content h2{
+
+
+    font-size:50px;
+
+
+    text-shadow:0 0 20px #00ffff;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.hero-content p{
+
+
+    font-size:20px;
+
+
+    color:#ccc;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+
+/* =====================================
+   BOTONES
+===================================== */
+
+
+.boton-principal{
+
+
+    background:#00ffcc;
+
+
+    color:#000;
+
+
+    padding:15px 45px;
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.boton-principal:hover{
+
+
+    transform:scale(1.08);
+
+
+    box-shadow:0 0 30px #00ffff;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   TORRES
+===================================== */
+
+
+.torres{
+
+
+    position:absolute;
+
+
+    bottom:0;
+
+
+    left:50%;
+
+
+    transform:translateX(-50%);
+
+
+    display:flex;
+
+
+    align-items:flex-end;
+
+
+    gap:40px;
+
+
+}
+
+
+
+
+
+.torre{
+
+
+    width:150px;
+
+
+    height:320px;
+
+
+    background:
+
+
+    linear-gradient(
+
+    90deg,
+
+    #020202,
+
+    #202020,
+
+    #020202
+
+    );
+
+
+    border:2px solid #333;
+
+
+    padding:20px;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    justify-content:space-around;
+
+
+    transition:.4s;
+
+
+}
+
+
+
+
+
+.torre.grande{
+
+
+    width:190px;
+
+
+    height:480px;
+
+
+}
+
+
+
+
+
+.torre.pequeña{
+
+
+    height:280px;
+
+
+}
+
+
+
+
+
+.torre div{
+
+
+    height:18px;
+
+
+    background:#111;
+
+
+    transition:.4s;
+
+
+}
+
+
+
+
+.torre:hover{
+
+
+    border-color:#00ffff;
+
+
+    box-shadow:
+
+
+    0 0 30px #00ffff;
+
+
+}
+
+
+
+
+.torre:hover div{
+
+
+    background:#00ffff;
+
+
+    box-shadow:
+
+
+    0 0 15px #00ffff;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   SECCIONES
+===================================== */
+
+
+.seccion{
+
+
+    max-width:1200px;
+
+
+    margin:auto;
+
+
+    padding:60px 40px;
+
+
+}
+
+
+
+
+.seccion h2{
+
+
+    text-align:center;
+
+
+    font-size:35px;
+
+
+    margin-bottom:35px;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   JUEGOS
+===================================== */
+
+
+.contenedor-juegos{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+    repeat(auto-fit,minmax(300px,1fr));
+
+
+    gap:30px;
+
+
+}
+
+
+
+
+
+.juego{
+
+
+    background:
+
+
+    linear-gradient(
+
+    145deg,
+
+    #151515,
+
+    #050505
+
+    );
+
+
+    border:1px solid #222;
+
+
+    border-radius:20px;
+
+
+    padding:30px;
+
+
+    overflow:hidden;
+
+
+    transition:.4s;
+
+
+    animation:aparecer .6s;
+
+
+}
+
+
+
+
+
+.juego:hover{
+
+
+    transform:translateY(-10px);
+
+
+    border-color:#00ffff;
+
+
+    box-shadow:
+
+
+    0 0 30px rgba(0,255,255,.5);
+
+
+}
+
+
+
+
+
+
+.imagen-juego{
+
+
+    height:180px;
+
+
+    background:
+
+
+    linear-gradient(
+
+    135deg,
+
+    #111,
+
+    #222
+
+    );
+
+
+    border-radius:15px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    font-size:70px;
+
+
+    margin-bottom:20px;
+
+
+    border:1px solid #333;
+
+
+    transition:.4s;
+
+
+}
+
+
+
+
+
+.juego:hover .imagen-juego{
+
+
+    transform:scale(1.05);
+
+
+    box-shadow:
+
+
+    0 0 25px #00ffff;
+
+
+}
+
+
+
+
+
+
+.juego h3{
+
+
+    font-size:28px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.juego p{
+
+
+    color:#bbb;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+
+
+.juego button{
+
+
+    width:100%;
+
+
+    margin-top:20px;
+
+
+    padding:12px;
+
+
+    border-radius:25px;
+
+
+    background:none;
+
+
+    border:2px solid #00ffff;
+
+
+    color:#00ffff;
+
+
+    cursor:pointer;
+
+
+    font-weight:bold;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.juego button:hover{
+
+
+    background:#00ffff;
+
+
+    color:#000;
+
+
+    box-shadow:0 0 20px #00ffff;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   ESTADOS
+===================================== */
+
+
+.estado{
+
+
+    display:inline-block;
+
+
+    padding:6px 15px;
+
+
+    border-radius:20px;
+
+
+    margin:10px 0;
+
+
+}
+
+
+
+.desarrollo{
+
+
+    color:#00ff66;
+
+
+    border:1px solid #00ff66;
+
+
+}
+
+
+
+
+.beta{
+
+
+    color:#ffd000;
+
+
+    border:1px solid #ffd000;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   PANEL
+===================================== */
+
+
+.panel{
+
+
+    background:#111;
+
+
+    border:1px solid #222;
+
+
+    border-radius:15px;
+
+
+    padding:30px;
+
+
+}
+
+
+
+.panel p{
+
+
+    color:#ccc;
+
+
+    margin:12px;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+
+footer{
+
+
+    background:#020202;
+
+
+    padding:30px;
+
+
+    text-align:center;
+
+
+    color:#777;
+
+
+}
+
+
+
+
+
+
+/* ANIMACION */
+
+
+@keyframes aparecer{
+
+
+from{
+
+
+    opacity:0;
+
+
+    transform:translateY(30px);
+
+
+}
+
+
+
+to{
+
+
+    opacity:1;
+
+
+    transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+
+
+/* MOVIL */
+
+
+@media(max-width:800px){
+
+
+.header{
+
+
+    flex-direction:column;
+
+
+    height:auto;
+
+
+    padding:20px;
+
+
+}
+
+
+
+.menu{
+
+
+    flex-wrap:wrap;
+
+
+}
+
+
+.hero-content h2{
+
+
+    font-size:35px;
+
+
+}
+
+
+}

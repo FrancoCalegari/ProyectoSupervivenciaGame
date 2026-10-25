@@ -1,0 +1,18 @@
+{
+    "juegos": [
+        {
+            "nombre": "Last Frontier",
+            "categoria": "Supervivencia mundo abierto",
+            "version": "BUILD 0.0.0.0",
+            "estado": "En desarrollo",
+            "motor": "Python + Pygame",
+            "plataforma": "Linux Mint + VS Code",
+            "progreso": [
+                "Proyecto creado",
+                "Estructura inicial creada",
+                "Primer código ejecutable",
+                "Primera ventana del juego"
+            ]
+        }
+    ]
+}
