@@ -1,7 +1,7 @@
 # ==========================================
 # STREAMBOX
-# BUILD 2.4.6.6
-# UI + DETALLE CONNECTOR
+# BUILD 2.5.2.4
+# UI + CHECKOUT + TICKET CONNECTOR
 # ==========================================
 
 import customtkinter as ctk
@@ -13,8 +13,7 @@ from config import (
     ANCHO_VENTANA,
     ALTO_VENTANA,
     COLOR_PRINCIPAL,
-    COLOR_CIAN,
-    COLOR_TEXTO
+    COLOR_CIAN
 )
 
 
@@ -23,6 +22,8 @@ from menu import MenuLateral
 from catalogo import CatalogoStreamBox
 from smart_cart import SmartCart
 from detalle import DetalleContenido
+from pago import PagoStreamBox
+from ticket import TicketStreamBox
 
 
 
@@ -42,7 +43,7 @@ class InterfazStreamBox(ctk.CTk):
 
 
     # ======================================
-    # CONFIGURACION
+    # VENTANA
     # ======================================
 
     def configurar_ventana(self):
@@ -65,7 +66,7 @@ class InterfazStreamBox(ctk.CTk):
 
 
     # ======================================
-    # LABEL ANIMACION
+    # LABEL PARA ANIMACIONES
     # ======================================
 
     def crear_label(
@@ -90,7 +91,7 @@ class InterfazStreamBox(ctk.CTk):
 
 
     # ======================================
-    # CARGAR INTERFAZ
+    # CARGAR SISTEMA
     # ======================================
 
     def cargar_centro_control(self):
@@ -113,7 +114,6 @@ class InterfazStreamBox(ctk.CTk):
         )
 
 
-
         self.contenedor = ctk.CTkFrame(
             self,
             fg_color="transparent"
@@ -122,9 +122,7 @@ class InterfazStreamBox(ctk.CTk):
 
         self.contenedor.pack(
             fill="both",
-            expand=True,
-            padx=20,
-            pady=20
+            expand=True
         )
 
 
@@ -201,20 +199,6 @@ class InterfazStreamBox(ctk.CTk):
         )
 
 
-        texto = ctk.CTkLabel(
-            self.panel,
-            text="Centro de Control Futurista",
-            font=(
-                "Arial",
-                18
-            ),
-            text_color=COLOR_TEXTO
-        )
-
-
-        texto.pack()
-
-
 
     # ======================================
     # CATALOGO
@@ -279,7 +263,9 @@ class InterfazStreamBox(ctk.CTk):
 
 
         carrito = SmartCart(
-            self.panel
+            self.panel,
+            self.carrito,
+            self.mostrar_pago
         )
 
 
@@ -291,7 +277,64 @@ class InterfazStreamBox(ctk.CTk):
 
 
     # ======================================
-    # AGREGAR CARRITO
+    # CHECKOUT
+    # ======================================
+
+    def mostrar_pago(
+            self,
+            contenido
+    ):
+
+
+        self.limpiar_panel()
+
+
+        pago = PagoStreamBox(
+            self.panel,
+            contenido,
+            self.mostrar_ticket,
+            self.mostrar_carrito
+        )
+
+
+        pago.pack(
+            fill="both",
+            expand=True
+        )
+
+
+
+    # ======================================
+    # TICKET
+    # ======================================
+
+    def mostrar_ticket(
+            self,
+            contenido,
+            metodo
+    ):
+
+
+        self.limpiar_panel()
+
+
+        ticket = TicketStreamBox(
+            self.panel,
+            contenido,
+            metodo,
+            self.mostrar_inicio
+        )
+
+
+        ticket.pack(
+            fill="both",
+            expand=True
+        )
+
+
+
+    # ======================================
+    # AGREGAR AL CARRITO
     # ======================================
 
     def agregar_carrito(
@@ -306,6 +349,6 @@ class InterfazStreamBox(ctk.CTk):
 
 
         print(
-            "Agregado al carrito:",
-            contenido
-        )s
+            "CARRITO:",
+            self.carrito
+        )
