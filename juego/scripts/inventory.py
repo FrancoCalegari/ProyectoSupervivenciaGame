@@ -1,33 +1,6 @@
 # 🧟 SupervivenciaGame
-# Sistema de Inventario
-# Versión: v0.1.1
-
-
-class Objeto:
-
-    def __init__(
-        self,
-        nombre,
-        tipo,
-        peso,
-        cantidad=1
-    ):
-
-        self.nombre = nombre
-        self.tipo = tipo
-        self.peso = peso
-        self.cantidad = cantidad
-
-
-
-    def mostrar(self):
-
-        print(
-            f"📦 {self.nombre} "
-            f"x{self.cantidad} "
-            f"| Peso: {self.peso}"
-        )
-
+# Sistema Inventario conectado con Item
+# FASE 2.2
 
 
 class Inventario:
@@ -35,55 +8,47 @@ class Inventario:
 
     def __init__(
         self,
-        capacidad=20
+        peso_maximo=30
     ):
 
-        # Cantidad máxima de espacios
-        self.capacidad = capacidad
+        self.items = []
 
-        # Lista de objetos
-        self.objetos = []
+        self.peso_maximo = peso_maximo
 
 
 
-    def mostrar_inventario(self):
+    # -------------------------
+    # Peso actual
+    # -------------------------
 
-        print("=" * 45)
-        print("🎒 INVENTARIO")
-        print("=" * 45)
+    def peso_actual(
+        self
+    ):
 
-
-        if len(self.objetos) == 0:
-
-            print(
-                "Inventario vacío"
-            )
-
-            return
+        peso = 0
 
 
-        for objeto in self.objetos:
+        for item in self.items:
 
-            objeto.mostrar()
+            peso += item.peso_total()
+
+
+        return peso
 
 
 
-        print(
-            "\nEspacios usados:",
-            len(self.objetos),
-            "/",
-            self.capacidad
-        )
+    # -------------------------
+    # Agregar objeto
+    # -------------------------
 
-
-
-    def agregar_objeto(
+    def agregar_item(
         self,
-        objeto
+        item
     ):
 
 
-        if len(self.objetos) >= self.capacidad:
+        if self.peso_actual() + item.peso_total() > self.peso_maximo:
+
 
             print(
                 "❌ Inventario lleno"
@@ -93,29 +58,29 @@ class Inventario:
 
 
 
-        # Revisar si ya existe
-        for item in self.objetos:
+        for existente in self.items:
 
-            if item.nombre == objeto.nombre:
 
-                item.cantidad += objeto.cantidad
+            if (
+                existente.nombre == item.nombre
+                and existente.apilable
+            ):
 
-                print(
-                    f"➕ {objeto.nombre} agregado"
+                existente.agregar(
+                    item.cantidad
                 )
 
                 return True
 
 
 
-        self.objetos.append(
-            objeto
+        self.items.append(
+            item
         )
 
 
         print(
-            f"📦 Nuevo objeto:"
-            f" {objeto.nombre}"
+            f"🎒 Objeto agregado: {item.nombre}"
         )
 
 
@@ -123,112 +88,135 @@ class Inventario:
 
 
 
-    def quitar_objeto(
-        self,
-        nombre,
-        cantidad=1
-    ):
+    # -------------------------
+    # Buscar objeto
+    # -------------------------
 
-
-        for objeto in self.objetos:
-
-
-            if objeto.nombre == nombre:
-
-
-                objeto.cantidad -= cantidad
-
-
-                print(
-                    f"➖ Quitado:"
-                    f" {nombre}"
-                )
-
-
-                if objeto.cantidad <= 0:
-
-                    self.objetos.remove(
-                        objeto
-                    )
-
-
-                return True
-
-
-
-        print(
-            "❌ Objeto no encontrado"
-        )
-
-
-        return False
-
-
-
-    def buscar_objeto(
+    def buscar(
         self,
         nombre
     ):
 
 
-        for objeto in self.objetos:
+        for item in self.items:
 
 
-            if objeto.nombre == nombre:
+            if item.nombre == nombre:
 
-                return objeto
-
+                return item
 
 
         return None
 
 
 
-    def usar_objeto(
+    # -------------------------
+    # Quitar objeto
+    # -------------------------
+
+    def quitar_item(
         self,
-        nombre
+        nombre,
+        cantidad=1
     ):
 
 
-        objeto = self.buscar_objeto(
+        item = self.buscar(
             nombre
         )
 
 
-        if objeto:
+        if item is None:
+
+            return False
 
 
-            print(
-                f"🖐️ Usando {nombre}"
+
+        eliminado = item.quitar(
+            cantidad
+        )
+
+
+        if eliminado and item.cantidad <= 0:
+
+            self.items.remove(
+                item
             )
 
 
-            self.quitar_objeto(
-                nombre
+        return eliminado
+
+
+
+    # -------------------------
+    # Mostrar inventario
+    # -------------------------
+
+    def mostrar(
+        self
+    ):
+
+
+        print("=" * 50)
+
+        print(
+            "🎒 INVENTARIO"
+        )
+
+        print("=" * 50)
+
+
+
+        if len(self.items) == 0:
+
+
+            print(
+                "Vacío"
             )
 
 
         else:
 
 
-            print(
-                "❌ No tienes ese objeto"
-            )
+            for item in self.items:
+
+
+                print(
+                    f"📦 {item.nombre} x{item.cantidad} | {item.peso_total()} kg"
+                )
 
 
 
-    def peso_total(self):
+        print(
+            "-" * 50
+        )
 
 
-        peso = 0
+        print(
+            f"⚖️ Peso: {self.peso_actual()} / {self.peso_maximo} kg"
+        )
 
 
-        for objeto in self.objetos:
 
-            peso += (
-                objeto.peso *
-                objeto.cantidad
-            )
+    # -------------------------
+    # Guardar
+    # -------------------------
+
+    def to_dict(
+        self
+    ):
 
 
-        return peso
+        return {
+
+            "peso_maximo": self.peso_maximo,
+
+            "items": [
+
+                item.to_dict()
+
+                for item in self.items
+
+            ]
+
+        }
