@@ -1,145 +1,257 @@
 # 🧟 SupervivenciaGame
 # Sistema del Jugador
-# Versión: v0.1.1
+# FASE 2 - Mundo Jugable
+# Versión v0.2.0
+
 
 class Jugador:
 
-    def __init__(self, nombre):
 
-        # Datos principales
+    def __init__(
+        self,
+        nombre
+    ):
+
+        # Información básica
+
         self.nombre = nombre
-        self.nivel = 1
-        self.experiencia = 0
 
-        # Estados de supervivencia
+
+        # Estadísticas
+
         self.vida = 100
+
+        self.vida_maxima = 100
+
         self.energia = 100
+
+        self.energia_maxima = 100
+
         self.hambre = 100
+
         self.sed = 100
 
-        # Posición inicial
+
+        # Experiencia
+
+        self.nivel = 1
+
+        self.experiencia = 0
+
+
+
+        # Posición en el mundo
+
         self.posicion = {
+
             "x": 0,
+
             "y": 0
+
         }
 
-        # Inventario inicial
-        self.inventario = []
 
-        # Estado actual
+
+        # Zona actual
+
+        self.zona_actual = "Inicio"
+
+
+
+        # Estado
+
         self.estado = "Normal"
 
 
-    def mostrar_estado(self):
 
-        print("=" * 40)
-        print("🧍 ESTADO DEL JUGADOR")
-        print("=" * 40)
+    # -------------------------
+    # Movimiento
+    # -------------------------
 
-        print(f"Nombre: {self.nombre}")
-        print(f"Nivel: {self.nivel}")
-        print(f"Experiencia: {self.experiencia}")
 
-        print("\n❤️ Vida:", self.vida)
-        print("⚡ Energía:", self.energia)
-        print("🍖 Hambre:", self.hambre)
-        print("💧 Sed:", self.sed)
+    def mover(
+        self,
+        direccion
+    ):
 
-        print("\n📍 Posición:")
-        print(self.posicion)
 
-        print("\n🎒 Inventario:")
-        if len(self.inventario) == 0:
-            print("Vacío")
+        if self.energia <= 0:
+
+            print(
+                "⚡ No tienes energía para moverte"
+            )
+
+            return False
+
+
+
+        if direccion == "norte":
+
+            self.posicion["y"] += 1
+
+
+
+        elif direccion == "sur":
+
+            self.posicion["y"] -= 1
+
+
+
+        elif direccion == "este":
+
+            self.posicion["x"] += 1
+
+
+
+        elif direccion == "oeste":
+
+            self.posicion["x"] -= 1
+
+
+
         else:
-            for objeto in self.inventario:
-                print("-", objeto)
 
-        print("\nEstado:", self.estado)
+            print(
+                "❌ Dirección incorrecta"
+            )
+
+            return False
 
 
-    def mover(self, x, y):
 
-        self.posicion["x"] += x
-        self.posicion["y"] += y
+        self.energia -= 5
 
-        self.gastar_energia(5)
 
         print(
-            f"🚶 {self.nombre} se movió "
-            f"a ({self.posicion['x']}, {self.posicion['y']})"
+            f"🚶 {self.nombre} se movió hacia {direccion}"
         )
 
 
-    def gastar_energia(self, cantidad):
-
-        self.energia -= cantidad
-
-        if self.energia < 0:
-            self.energia = 0
-
-        if self.energia == 0:
-            self.estado = "Agotado"
+        print(
+            f"📍 Posición: {self.posicion}"
+        )
 
 
-    def recibir_daño(self, daño):
+        return True
 
-        self.vida -= daño
+
+
+    # -------------------------
+    # Cambiar zona
+    # -------------------------
+
+
+    def cambiar_zona(
+        self,
+        nueva_zona
+    ):
+
+        self.zona_actual = nueva_zona
+
+
+        print(
+            f"📍 Entraste a: {nueva_zona}"
+        )
+
+
+
+    # -------------------------
+    # Recibir daño
+    # -------------------------
+
+
+    def recibir_danio(
+        self,
+        cantidad
+    ):
+
+
+        self.vida -= cantidad
+
 
         if self.vida < 0:
+
             self.vida = 0
 
-        print(f"💥 Daño recibido: {daño}")
+
+
+        print(
+            f"💥 Daño recibido: {cantidad}"
+        )
+
 
         if self.vida == 0:
-            self.estado = "Derrotado"
+
+            self.estado = "Muerto"
 
 
-    def curarse(self, cantidad):
+            print(
+                "☠️ Jugador eliminado"
+            )
+
+
+
+    # -------------------------
+    # Curación
+    # -------------------------
+
+
+    def curar(
+        self,
+        cantidad
+    ):
+
 
         self.vida += cantidad
 
-        if self.vida > 100:
-            self.vida = 100
 
-        print(f"❤️ Curación: +{cantidad}")
+        if self.vida > self.vida_maxima:
 
-
-    def comer(self, cantidad):
-
-        self.hambre += cantidad
-
-        if self.hambre > 100:
-            self.hambre = 100
-
-        print("🍖 El jugador comió")
+            self.vida = self.vida_maxima
 
 
-    def beber(self, cantidad):
-
-        self.sed += cantidad
-
-        if self.sed > 100:
-            self.sed = 100
-
-        print("💧 El jugador bebió")
-
-
-    def agregar_objeto(self, objeto):
-
-        self.inventario.append(objeto)
 
         print(
-            f"🎒 Objeto agregado: {objeto}"
+            f"❤️ Vida recuperada: {cantidad}"
         )
 
 
-    def ganar_experiencia(self, cantidad):
+
+    # -------------------------
+    # Energía
+    # -------------------------
+
+
+    def descansar(
+        self
+    ):
+
+
+        self.energia = self.energia_maxima
+
+
+        print(
+            "😴 Energía restaurada"
+        )
+
+
+
+    # -------------------------
+    # Experiencia
+    # -------------------------
+
+
+    def ganar_experiencia(
+        self,
+        cantidad
+    ):
+
 
         self.experiencia += cantidad
 
+
         print(
-            f"⭐ Experiencia obtenida: {cantidad}"
+            f"⭐ Experiencia +{cantidad}"
         )
 
 
@@ -148,11 +260,77 @@ class Jugador:
             self.subir_nivel()
 
 
-    def subir_nivel(self):
+
+    def subir_nivel(
+        self
+    ):
+
 
         self.nivel += 1
+
         self.experiencia = 0
 
+
         print(
-            f"⬆️ Nuevo nivel alcanzado: {self.nivel}"
+            f"🎉 Nuevo nivel: {self.nivel}"
+        )
+
+
+
+    # -------------------------
+    # Estado del jugador
+    # -------------------------
+
+
+    def mostrar_estado(
+        self
+    ):
+
+
+        print("=" * 50)
+
+        print(
+            f"🧍 JUGADOR: {self.nombre}"
+        )
+
+        print("=" * 50)
+
+
+        print(
+            f"❤️ Vida: {self.vida}/{self.vida_maxima}"
+        )
+
+
+        print(
+            f"⚡ Energía: {self.energia}/{self.energia_maxima}"
+        )
+
+
+        print(
+            f"🍖 Hambre: {self.hambre}"
+        )
+
+
+        print(
+            f"💧 Sed: {self.sed}"
+        )
+
+
+        print(
+            f"⭐ Nivel: {self.nivel}"
+        )
+
+
+        print(
+            f"📍 Posición: {self.posicion}"
+        )
+
+
+        print(
+            f"🌎 Zona: {self.zona_actual}"
+        )
+
+
+        print(
+            f"Estado: {self.estado}"
         )
